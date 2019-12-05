@@ -1,0 +1,41 @@
+数据库名:db_nl_student.sql
+
+导出数据库(cmd):mysqldump -u root -p db_nl_student > db_nl_student.sql;
+导入数据库(mysql): source db_nl_student.sql;
+
+
+班主任(管理员)：用户名、班主任姓名、电话号、联系地址、登入密码
+
+学生: 学号、身份证、姓名、性别、出生日期、班级、Email、学生备注
+
+成绩: 学号、姓名、科目、成绩
+
+create table manager(
+ username varchar(20) primary key ,
+ name varchar(20) not null , 
+ phone varchar(11) not null ,
+ address varchar(100) not null,
+ password varchar(20) not null 
+);
+
+ drop table  manager ;
+
+create table student(
+ ID varchar(12) primary key ,
+ identify varchar(18) not null,
+ name varchar(20) not null ,
+ sex varchar(4) not null ,
+ birthday DATE not null ,
+ classes varchar(40) not null ,
+ Email varchar(20) not null ,
+ remarks varchar(100) 
+);
+
+drop table  student ;
+
+create table grade(
+  ID varchar(12) not null ,
+  name varchar(20) not null ,
+  subject varchar(30) not null , 
+  grade int not null
+);
